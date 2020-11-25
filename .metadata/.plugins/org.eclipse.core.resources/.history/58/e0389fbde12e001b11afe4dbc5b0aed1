@@ -1,0 +1,29 @@
+package kr.or.ddit.basic;
+
+import javax.servlet.http.HttpServlet;
+
+/*
+ * 서블릿이란 ==> 컨테이너(서블릿엔진)에 의해 관리되는 자바기반 웹 컴포넌트로서,
+ * 				동적인 웹 컨텐츠 생성을 가능하게 해준다.
+ * 
+ * 전체 요청 URL주소 ==> http://localhost:80/servletTest/servletTest01.db
+ * 
+ */
+
+public class ServletTest01 extends HttpServlet {
+	
+	private static final long serivalVersionUID = 1L;
+	
+
+}
+
+
+
+
+
+
+
+
+
+
+

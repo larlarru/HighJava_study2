@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<body>
+	<h1>Servlet 요청 연습</h1>
+	<hr>
+	
+	<h2>GET 방식 요청1 ==> 링크 방식</h2>
+	<a href="http://localhost/servletTest/servletTest03.do">Get 방식 요청 1</a>
+
+</body>
+</html>

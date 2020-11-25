@@ -1,0 +1,9 @@
+package kr.or.ddit.basic;
+
+import javax.servlet.http.HttpServlet;
+
+public class ServletTest03 extends HttpServlet{
+
+	private static final long serialVersionUID = 1L;
+
+}
