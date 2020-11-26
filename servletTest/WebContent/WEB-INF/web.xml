@@ -17,4 +17,41 @@
     <servlet-name>servletTest01</servlet-name>
     <url-pattern>/servletTest01.do</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>servletTest05</servlet-name>
+    <servlet-class>kr.or.ddit.basic.ServletTest05</servlet-class>
+    <init-param>
+      <param-name>AdminEmail</param-name>
+      <param-value>admin@ddit.or.kr</param-value>
+    </init-param>
+    <init-param>
+      <param-name>userName</param-name>
+      <param-value>홍길동</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>servletTest05</servlet-name>
+    <url-pattern>/servletTest05.do</url-pattern>
+  </servlet-mapping>
+  <context-param>
+    <param-name>myContext</param-name>
+    <param-value>연습용 컨텍스트 파라미터 값</param-value>
+  </context-param>
+  
+  <servlet>
+    <servlet-name>servletTest08</servlet-name>
+    <servlet-class>kr.or.ddit.basic.ServletTest08</servlet-class>
+    <init-param>
+      <param-name>start</param-name>
+      <param-value>1</param-value>
+    </init-param>
+    <init-param>
+      <param-name>end</param-name>
+      <param-value>50</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>servletTest08</servlet-name>
+    <url-pattern>/servletTest08.do</url-pattern>
+  </servlet-mapping>
 </web-app>
