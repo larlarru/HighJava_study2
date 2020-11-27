@@ -37,7 +37,6 @@
     <param-name>myContext</param-name>
     <param-value>연습용 컨텍스트 파라미터 값</param-value>
   </context-param>
-  
   <servlet>
     <servlet-name>servletTest08</servlet-name>
     <servlet-class>kr.or.ddit.basic.ServletTest08</servlet-class>
