@@ -8,11 +8,10 @@
 </head>
 <body>
 
-	<h2>Session 로그인 Main 페이지 입니다.</h2>
-	
-	<a href="<%= request.getContextPath() %>/sessionLoginServlet.do">
-		LOGIN하기
-	</a>
+	<form action="<%= request.getContextPath()%>/filterEncodingTestServlet.do">
+		이름 : <input type="text" name="userName"><br>
+		<input type="submit" value="전송">
+	</form>
 
 </body>
 </html>

@@ -3,6 +3,7 @@ package kr.or.ddit.session;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -24,7 +25,7 @@ public class SessionLoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		/*
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
@@ -36,7 +37,29 @@ public class SessionLoginServlet extends HttpServlet {
 		} else {
 			response.sendRedirect(contextPath + "/03/sessionLogin.jsp");
 		}
+		*/
 		
+		// GET방식으로 요청하면 세션을 확인해서 세션이 없으면 로그인 폼(sessionLogin.jsp)으로 이동
+		// 세션이 있으면 sessionResult.jsp로 이동
+		
+		HttpSession session = request.getSession();
+		String viewPage = null;
+		
+		String userId = (String) session.getAttribute("USERID");
+		if(userId == null) {	// 세션값이 없으면...
+			
+			viewPage = "/03/sessionLogin.jsp";
+		} else {
+			viewPage = "/03/sessionResult.jsp";
+		}
+		
+		// 페이지 이동하기 ==> forward방식과 redirect방식 중 하나를 사용한다.
+		// 방법1) redirect방식
+		response.sendRedirect(request.getContextPath() + viewPage);
+		
+		// 방법2) forward방식
+		//RequestDispatcher rd = request.getRequestDispatcher(viewPage);
+		//rd.forward(request, response);
 		
 	}
 
@@ -44,7 +67,7 @@ public class SessionLoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		/*
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
@@ -77,6 +100,33 @@ public class SessionLoginServlet extends HttpServlet {
 				response.sendRedirect(contextPath + "/03/sessionResult.jsp");
 			}
 		}
+		*/
+		
+		// POST 방식으로 요청하면 로그인 검증 작업을 수행한다.
+		String userId = request.getParameter("userid");
+		String pass = request.getParameter("pass");
+		
+		String viewPage = "/03/sessionResult.jsp";
+		
+		HttpSession session = request.getSession();
+		
+		if((userId!=null) && (pass!=null)) {
+			
+			if("admin".equals(userId) && "1234".equals(pass)) {	// 로그인 성공
+				
+				session.setAttribute("USERID", userId);
+			}
+		}
+
+		// 페이지 이동하기 ==> forward방식과 redirect방식 중 하나를 사용한다.
+		// 방법1) redirect방식
+		//response.sendRedirect(request.getContextPath() + viewPage);
+		
+		// 방법2) forward방식
+		RequestDispatcher rd = request.getRequestDispatcher(viewPage);
+		rd.forward(request, response);
+		
+		
 	}
 
 }
