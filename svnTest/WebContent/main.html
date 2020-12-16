@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Web Shop</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<style>
+	.ul, .li {
+		float : left;
+		list-style:none;
+		margin : 5px;
+		text-align: center;
+	}
+	.ul {
+		width : 100%;
+		padding-left: 30%;
+		border : 1px solid red;
+		border-left: none;
+		border-right: none;
+	}
+	#footer {
+		height : 80px;
+		background : #722f37;
+		clear : both;
+	}
+	#reservation {
+		text-align: center;
+	}
+	table {
+		text-align: center;
+		border-collapse : collapse;
+	}
+</style>
+
+<script>
+	$(function() {
+		
+		
+	})
+</script>
+
+</head>
+<body>
+
+	<div id="login" style="float : right;">
+		<form action="#">
+			<label>아이디 : </label><input type="text" name="id">
+			<label>비밀번호 : </label><input type="password" name="pass">
+
+			<input class="input" type="submit" value="로그인">
+			<!-- <input class="input" type="reset" value="초기화"> -->
+			<a href="main.html">회원가입</a> 
+			<a href="main.html">ID/비밀번호찾기</a>
+			</form>
+	</div>
+	
+    <br>
+    
+    <div class="container">
+	  <ul class="nav nav-tabs">
+	    <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+	    <li><a data-toggle="tab" href="#menu1">메뉴 1</a></li>
+	    <li><a data-toggle="tab" href="#menu2">메뉴 2</a></li>
+	    <li><a data-toggle="tab" href="#menu3">메뉴 3</a></li>
+	  </ul>
+	
+	  <div class="tab-content">
+	    <div id="home" class="tab-pane fade in active">
+	    </div>
+	    <div id="menu1" class="tab-pane fade">
+	      <h3>메뉴 1</h3>
+	      <p>메뉴 1 넣으삼</p>
+	      <p>테스트로 집어넣음</p>
+	      <ul class="nav nav-tabs">
+		    <li class="active"><a data-toggle="tab" href="">Home</a></li>
+		    <li><a data-toggle="tab" href="">메뉴 1</a></li>
+		    <li><a data-toggle="tab" href="">메뉴 2</a></li>
+		    <li><a data-toggle="tab" href="">메뉴 3</a></li>
+		  </ul>
+		  <hr>
+	    </div>
+	    <div id="menu2" class="tab-pane fade">
+	      <h3>메뉴 2</h3>
+	      <p>메뉴2 넣으삼</p>
+	    </div>
+	    <div id="menu3" class="tab-pane fade">
+	      <h3>메뉴 3</h3>
+	      <p>메뉴3 넣으삼</p>
+	    </div>
+	  </div>
+	</div>
+    
+    <br>
+    
+    <div id="reservation">
+    	<table border="1" align="center">
+    		<tr>
+    			<td>지점 선택</td>
+    			<td>시작일</td>
+    			<td>마지막일</td>
+    			<td>객실타입</td>
+    			<td>객실 인원</td>
+    		</tr>
+    		<tr>
+    			<td id="" idx="" name="">지점 선택</td>
+    			<td id="" idx="" name=""><input type="date" value="시작일"></td>
+    			<td id="" idx="" name=""><input type="date" value="마지막일"></td>
+    			<td id="" idx="" name="">객실타입</td>
+    			<td id="" idx="" name="">객실 인원</td>
+    		</tr>
+    	</table>
+    </div>
+
+	<br>
+	
+	<section id="section_result">
+		<article id="article_result">
+			<div id="div_result">
+			</div>
+		</article>
+	</section>
+
+	<br>
+
+	
+	<footer id="footer">
+		<p id="WebShop" style="color:white;">호텔 달고나</p>
+	</footer>
+   
+
+
+</body>
+</html>

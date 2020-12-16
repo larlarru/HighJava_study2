@@ -26,6 +26,7 @@
 	 <typeAlias alias="memVo" type="kr.or.ddit.vo.MemberVO"/>
 	 <!-- <typeAlias alias="boardVo" type="kr.or.ddit.board.vo.JdbcBoardVO"/> -->
 	 <!-- <typeAlias alias="roomVo" type="kr.or.ddit.room.vo.HotelRoomVO"/> -->
+	 <typeAlias alias="hotelVo" type="kr.or.ddit.hotel.vo.HotelVO"/>
 	 
 	 
 	 <!-- DB와 연결을 처리하는 부분 -->
@@ -48,6 +49,7 @@
 	 <sqlMap resource="kr/or/ddit/member/ibatis/mymember.xml"/>
 	 <!-- <sqlMap resource="kr/or/ddit/board/ibatis/jdbcboard.xml"/> -->
 	 <!-- <sqlMap resource="kr/or/ddit/room/ibatis/hotelroom.xml"/> -->
+	 <sqlMap resource="kr/or/ddit/hotel/ibatis/hotel.xml"/>
 		
 </sqlMapConfig>
 
