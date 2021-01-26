@@ -2,4 +2,5 @@
 <modules>
   <module moduleId="org.eclipse.jst.jee.server:servletTest" serverId="Tomcat v8.5 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:servletTest2" serverId="Tomcat v8.5 Server at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:webBoard" serverId="Tomcat v8.5 Server at localhost"/>
 </modules>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>게시판</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="../js/board.js"></script>
+<script src="../js/jquery.serializejson.min.js"></script>
+
+<style>
+</style>
+
+<script>
+	$(function() {
+		// 게시글 출력
+		getAllBoardList();
+		
+		// 글작성버튼 누르면 모달창 생성
+		$('#insertBoardBtn').on('click', function() {
+			insertBoardBefore();
+			$('#cModal').modal('show');
+		})
+		
+		// 글작성완료 누르면 게시글 등록
+		$(document).on('click', '#createBoardSubmitBtn', function() {
+			
+			boardTitle = $('#cform #cModalboard_title').val().trim();
+			console.log("boardTitle : " + boardTitle);
+			
+			boardWriter = $('#cform #cModalboard_writer').val().trim();
+			console.log("boardWriter : " + boardWriter);
+
+			boardContent = $('#cform #cModalboard_content').val().trim();
+			console.log("boardContent : " + boardContent);
+			insertBoardAfter();
+
+		})
+		
+		// 게시글 수정을 위해 모달창 띄우기
+		$(document).on('click', '#updateBoardBtn', function() {
+			
+			num = $('#updateBoardBtn').attr("idx");
+			console.log("num : " + num);
+			
+			updateBoardBefore();
+			
+			boardTitle = $('#board_title'+num).text().trim();
+			console.log("boardTitle : " + boardTitle);
+			
+			boardWriter = $('#board_writer'+num).text().trim();
+			console.log("boardWriter : " + boardWriter);
+
+			boardContent = $('#board_content'+num).text().trim();
+			console.log("boardContent : " + boardContent);
+			
+			$('#uModal').modal('show');
+			// uform에 출력
+			$('#uModalboard_title').val(boardTitle);
+			$('#uModalboard_writer').val(boardWriter);
+			$('#uModalboard_content').val(boardContent);
+			
+			
+		})
+		
+		// 게시글 수정 완료
+		$(document).on('click', '#updateBoardSubmitBtn', function() {
+			
+			//boardNo = $('#updateBoardBtn').attr("idx");
+			console.log("boardNo : "+boardNo);
+			
+			boardTitle = $('#uModalboard_title').val();
+			console.log("boardTitle : " + boardTitle);
+			
+			boardWriter = $('#uModalboard_writer').val();
+			console.log("boardWriter : " + boardWriter);
+
+			boardContent = $('#uModalboard_content').val();
+			console.log("boardContent : " + boardContent);
+			
+			
+			updateBoardAfter();
+			
+		})
+		
+		// 게시글 삭제
+		$(document).on('click', '#deleteBoardBtn', function() {
+			
+			boardNo = $('#deleteBoardBtn').attr("idx");
+			console.log("boardNo : "+boardNo);
+			deleteBoard();
+			
+		})
+		
+		// 검색해서 게시글 출력
+		$('#searchBoardBtn').on('click', function() {
+			
+			textVal = $('#searchBoardText').val().trim();
+			console.log("textVal : " + textVal);
+			getSearchBoardList();
+		})
+		
+		// 조회수 증가시키기
+		$(document).on('click', '#aHrefboard_no', function() {
+			boo = $(this).attr('aria-expanded');
+			console.log("boo : " + boo);
+			if(boo=="true") {
+				boardNo = $(this).attr('idx');
+				console.log("boardNo : "+boardNo);
+				boardCnt1 = $('#aHref_board_cnt'+boardNo).text();
+				console.log("boardCnt1 : "+boardCnt1);
+				boardCnt2 = $('#p1_labelboard_cnt'+boardNo).text();
+				console.log("boardCnt2 : "+boardCnt2);
+				updateBoardCnt();
+			}
+		})
+		
+		
+	})
+</script>
+
+</head>
+<body>
+
+	<div id="searchDiv">
+		<input id="insertBoardBtn" type="button" value="글작성">
+		<label>검색 : </label>
+		<input id="searchBoardText" type="text">
+		<input id="searchBoardBtn" type="button" value="검색">
+	</div>
+	
+	<div id="result">
+	</div>
+	
+	<div id="modal_result">
+	</div>
+
+
+
+</body>
+</html>
